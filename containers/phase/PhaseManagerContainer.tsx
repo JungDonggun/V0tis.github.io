@@ -1,20 +1,40 @@
 import React from 'react';
-import FirstPhaseIntroduce from "../../components/phase/First/FirstPhaseIntroduce";
+import FirstPhaseIntroduce from "../../components/phase/first/FirstPhaseIntroduce";
 import { Col, Row } from "antd";
+import SecondPhaseIntroduce from "../../components/phase/second/SecondPhaseIntroduce";
+import { COLORS } from "../../common/colors";
+import { useRouter } from 'next/router';
 
-const PhaseManagerContainer: React.FunctionComponent = () => {
-  const [ phaseNumber, setPhaseNumber ] = React.useState<number>(1);
+interface Props {
+  phaseNumber: number;
+}
 
-  const onNextPhase = React.useCallback((phase: number) => {
-    // setPhaseNumber(phaseNumber + 1);
+const PhaseManagerContainer: React.FunctionComponent<Props> = ({ phaseNumber }) => {
+  const router = useRouter();
+
+  const onNextPhase = React.useCallback(async (url: string) => {
+    await router.push(`introduce/${url}`);
+  }, []);
+
+  const phase = React.useMemo(() => {
+    if (phaseNumber === 1) {
+      return <FirstPhaseIntroduce onNext={onNextPhase}/>;
+    } else if (phaseNumber === 2) {
+      return <SecondPhaseIntroduce onNext={onNextPhase}/>;
+    }
   }, [ phaseNumber ]);
 
   return (
-      <Row justify={'center'} align={'middle'} style={{ height: '100%', }}>
-        <Col span={20}>
-          <FirstPhaseIntroduce onNext={onNextPhase}/>
+      <React.Fragment>
+        <Col sm={1} style={{ backgroundColor: COLORS.deepBlue2 }}/>
+        <Col sm={23}>
+          <Row justify={'center'} align={'middle'} style={{ height: '90%', }}>
+            <Col span={20}>
+              {phase}
+            </Col>
+          </Row>
         </Col>
-      </Row>
+      </React.Fragment>
   );
 };
 

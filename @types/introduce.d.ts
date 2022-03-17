@@ -1,5 +1,5 @@
 interface IntroducePhaseCallback {
-  onNext: (phase: number) => void;
+  onNext: (url: string) => void;
 }
 
 interface IntroducePhaseButtonCallback {

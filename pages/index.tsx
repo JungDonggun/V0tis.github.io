@@ -1,12 +1,14 @@
 import React from 'react';
-import PhaseManagerContainer from "../containers/phase/PhaseManagerContainer";
+import { useRouter } from "next/router";
 
 const IndexPage: React.FunctionComponent = () => {
-  return (
-      <div style={{ height: '100%' }}>
-        <PhaseManagerContainer/>
-      </div>
-  );
+  const router = useRouter();
+
+  React.useEffect(() => {
+    router.push('/introduce');
+  }, []);
+
+  return (<></>);
 };
 
 export default IndexPage;

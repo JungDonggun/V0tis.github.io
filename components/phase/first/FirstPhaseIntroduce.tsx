@@ -11,9 +11,9 @@ const { Title } = Typography;
 const FirstPhaseIntroduce: React.FunctionComponent<IntroducePhaseCallback> = ({ onNext }) => {
   const [ isFinish, setIsFinish ] = React.useState(false);
 
-  const onCloseButton = () => {
-
-  };
+  const onCloseButton = React.useCallback(() => {
+    onNext('second');
+  }, [ onNext ]);
 
   return (
       <div style={{ height: '100%' }}>
