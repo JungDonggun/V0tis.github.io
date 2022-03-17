@@ -9,7 +9,7 @@ interface Props {
   phaseNumber: number;
 }
 
-const PhaseManagerContainer: React.FunctionComponent<Props> = ({ phaseNumber }) => {
+const PhaseManager: React.FunctionComponent<Props> = ({ phaseNumber }) => {
   const router = useRouter();
 
   const onNextPhase = React.useCallback(async (url: string) => {
@@ -38,4 +38,4 @@ const PhaseManagerContainer: React.FunctionComponent<Props> = ({ phaseNumber }) 
   );
 };
 
-export default PhaseManagerContainer;
+export default PhaseManager;

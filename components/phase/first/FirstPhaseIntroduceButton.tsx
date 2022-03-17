@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Col, Space } from 'antd';
 import introduceText from "../../../common/introduceText";
 import FadeIn from 'react-fade-in';
-import styled from "@emotion/styled";
 
 const BUTTON_STYLE = {
   height: 50

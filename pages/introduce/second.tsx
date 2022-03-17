@@ -1,11 +1,11 @@
 import React from 'react';
 import { Row } from "antd";
-import PhaseManagerContainer from "../../containers/phase/PhaseManagerContainer";
+import PhaseManager from "../../containers/phase/PhaseManager";
 
 const SecondIntroducePage: React.FunctionComponent = () => {
   return (
       <Row style={{ height: '100%' }}>
-        <PhaseManagerContainer phaseNumber={2}/>
+        <PhaseManager phaseNumber={2}/>
       </Row>
   );
 };
