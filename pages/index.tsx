@@ -1,15 +1,10 @@
 import React from 'react';
-import UIJumbotron from "../components/UI/UIJumbotron";
-import omenImage from '../public/images/omen_bg.jpeg';
+import PhaseManagerContainer from "../containers/phase/PhaseManagerContainer";
 
 const IndexPage: React.FunctionComponent = () => {
   return (
-      <div>
-        <UIJumbotron image={omenImage} width={'100%'} height={'auto'}>
-          <div>
-            ㅁㄴㅇㄹ
-          </div>
-        </UIJumbotron>
+      <div style={{ height: '100%' }}>
+        <PhaseManagerContainer/>
       </div>
   );
 };
