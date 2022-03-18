@@ -1,11 +1,11 @@
 import React from 'react';
 
-const example: React.FunctionComponent = () => {
+const SecondPhaseIntroduceContent: React.FunctionComponent = () => {
   return (
       <div>
-
+        
       </div>
   );
 };
 
-export default example;
+export default SecondPhaseIntroduceContent;

@@ -3,18 +3,31 @@ import IntroduceButton from "../../components/introduce/IntroduceButton";
 import { Space, Typography } from "antd";
 import { INTRODUCE_PHASE_TEXT } from "../../common/css";
 import FadeIn from "react-fade-in";
+import introduceList from "../../common/introduceList";
+import { useSpotlight } from 'react-spotlight-tour';
 
 const { Title } = Typography;
 
-const IntroduceButtonManager: React.FunctionComponent = () => {
+interface Props {
+  onClick: (type: string) => void;
+}
+
+const LIST = introduceList;
+
+
+const IntroduceButtonManager: React.FunctionComponent<Props> = ({ onClick }) => {
+  const spotlightRef = useSpotlight('제가 궁금하신 거 아니었어요?!\n궁금한 것을 선택해 주세요!');
+
   return (
       <div>
         <div>
-          <Space>
-            <IntroduceButton text={'당신은 뭐하는 사람인가요?'}/>
-            <IntroduceButton text={'포토폴리오를 보고 싶어요'}/>
-            <IntroduceButton text={'경력을 보고 싶어요'}/>
-          </Space>
+          <div ref={spotlightRef}>
+            <Space>
+              <IntroduceButton text={LIST[0].name}/>
+              <IntroduceButton text={LIST[1].name}/>
+              <IntroduceButton text={LIST[2].name}/>
+            </Space>
+          </div>
         </div>
         <div style={{ marginTop: 24 }}>
           <FadeIn delay={1400}>
@@ -24,7 +37,7 @@ const IntroduceButtonManager: React.FunctionComponent = () => {
         <div>
           <FadeIn delay={1800}>
             <Space>
-              <IntroduceButton text={'연락처를 알고 싶어요'}/>
+              <IntroduceButton width={503} text={LIST[3].name}/>
             </Space>
           </FadeIn>
         </div>
