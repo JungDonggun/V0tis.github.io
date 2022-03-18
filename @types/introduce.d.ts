@@ -5,3 +5,9 @@ interface IntroducePhaseCallback {
 interface IntroducePhaseButtonCallback {
   onClose: () => void;
 }
+
+interface IntroduceButtonItem {
+  name: string;
+  role: string;
+}
+

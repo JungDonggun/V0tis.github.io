@@ -8,14 +8,10 @@ import { useSpotlight } from 'react-spotlight-tour';
 
 const { Title } = Typography;
 
-interface Props {
-  onClick: (type: string) => void;
-}
 
-const LIST = introduceList;
+const LIST: IntroduceButtonItem[] = introduceList;
 
-
-const IntroduceButtonManager: React.FunctionComponent<Props> = ({ onClick }) => {
+const IntroduceButtonManager: React.FunctionComponent = () => {
   const spotlightRef = useSpotlight('제가 궁금하신 거 아니었어요?!\n궁금한 것을 선택해 주세요!');
 
   return (
@@ -23,9 +19,9 @@ const IntroduceButtonManager: React.FunctionComponent<Props> = ({ onClick }) => 
         <div>
           <div ref={spotlightRef}>
             <Space>
-              <IntroduceButton text={LIST[0].name}/>
-              <IntroduceButton text={LIST[1].name}/>
-              <IntroduceButton text={LIST[2].name}/>
+              <IntroduceButton item={LIST[0]}/>
+              <IntroduceButton item={LIST[1]}/>
+              <IntroduceButton item={LIST[2]}/>
             </Space>
           </div>
         </div>
@@ -37,7 +33,7 @@ const IntroduceButtonManager: React.FunctionComponent<Props> = ({ onClick }) => 
         <div>
           <FadeIn delay={1800}>
             <Space>
-              <IntroduceButton width={503} text={LIST[3].name}/>
+              <IntroduceButton width={503} item={LIST[3]}/>
             </Space>
           </FadeIn>
         </div>

@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import '../styles/antd.less';
 import '../styles/globals.css';
 import styled from '@emotion/styled';
+import { RecoilRoot } from "recoil";
 
 const Container = styled.div(() => ({
   height: '100%',
@@ -10,7 +11,9 @@ const Container = styled.div(() => ({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
       <Container>
-        <Component {...pageProps} />
+        <RecoilRoot>
+          <Component {...pageProps} />
+        </RecoilRoot>
       </Container>
   );
 }
