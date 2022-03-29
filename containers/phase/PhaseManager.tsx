@@ -2,8 +2,8 @@ import React from 'react';
 import FirstPhaseIntroduce from "../../components/phase/first/FirstPhaseIntroduce";
 import { Col, Row } from "antd";
 import SecondPhaseIntroduce from "../../components/phase/second/SecondPhaseIntroduce";
-import { COLORS } from "../../common/colors";
 import { useRouter } from 'next/router';
+import BlueLineBar from "../../components/bar/BlueLineBar";
 
 interface Props {
   phaseNumber: number;
@@ -26,9 +26,9 @@ const PhaseManager: React.FunctionComponent<Props> = ({ phaseNumber }) => {
 
   return (
       <React.Fragment>
-        <Col sm={1} style={{ backgroundColor: COLORS.deepBlue2 }}/>
+        <BlueLineBar/>
         <Col sm={23}>
-          <Row justify={'center'} align={'middle'} style={{ height: '90%', }}>
+          <Row justify={'center'} align={'middle'} style={{ height: '100%', }}>
             <Col span={20}>
               {phase}
             </Col>

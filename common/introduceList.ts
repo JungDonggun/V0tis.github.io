@@ -15,4 +15,4 @@ export default [
     name: '연락처를 알고 싶어요',
     role: 'ROLE_004'
   }
-];
+] as IntroduceButtonItem[];

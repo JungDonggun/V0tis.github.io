@@ -8,7 +8,6 @@ import { useSpotlight } from 'react-spotlight-tour';
 
 const { Title } = Typography;
 
-
 const LIST: IntroduceButtonItem[] = introduceList;
 
 const IntroduceButtonManager: React.FunctionComponent = () => {

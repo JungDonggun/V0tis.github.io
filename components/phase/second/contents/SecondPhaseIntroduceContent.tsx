@@ -1,10 +1,14 @@
 import React from 'react';
+import About from "../../../about/About";
+import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 const SecondPhaseIntroduceContent: React.FunctionComponent = () => {
   return (
-      <div>
-        
-      </div>
+      <ScrollMenu>
+        <About/>
+        {/*<Portfolio/>*/}
+        {/*<Career/>*/}
+      </ScrollMenu>
   );
 };
 
