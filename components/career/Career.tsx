@@ -21,7 +21,7 @@ const ITEMS: CareerItem[] = [
 ];
 
 const Container = styled.div(() => ({
-  width: '100%',
+  width: 900,
 }));
 
 const Career: React.FunctionComponent = () => {

@@ -9,39 +9,33 @@ import { SpotlightTour } from 'react-spotlight-tour';
 import Spotlight from 'react-spotlight-tour/spotlight';
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { callbackManageReducer } from "../../../recoil/callback/callbackManage";
-import { introduceStateReducer } from "../../../recoil/introduce/introduceState";
+import { introduceListState, } from "../../../recoil/introduce/introduceState";
 import UIFlexView from "../../UI/UIFlexView";
 
 const { Title } = Typography;
 
 const SecondPhaseIntroduce: React.FunctionComponent<IntroducePhaseCallback> = ({ onNext }) => {
-  const [ introduce, setIntroduce ] = useRecoilState(introduceStateReducer);
+  const [ introduce, setIntroduce ] = useRecoilState(introduceListState);
   const setCallback = useSetRecoilState(callbackManageReducer);
   const [ spotlight, setSpotlight ] = React.useState<boolean>(false);
 
   React.useLayoutEffect(() => {
-    // setTimeout(() => {
-    //   setSpotlight(true);
-    // }, 30000);
+    // if (introduce.length === 0) {
+    //   setTimeout(() => {
+    //     setSpotlight(true);
+    //   }, 2000);
+    // }
 
     setCallback({ introduce: { onClickButtonHandler } });
-  }, []);
+  }, [ introduce ]);
 
   const onClickButtonHandler = React.useCallback((type: IntroduceButtonItem) => {
-    const copySelectedIntroduceList = [ ...introduce.selectedIntroduceList ];
+    const copySelectedIntroduceList = [ ...introduce ];
     const findIntroduceList = copySelectedIntroduceList.find(({ role }) => role === type.role);
 
-    console.log({
-      copySelectedIntroduceList,
-      findIntroduceList
-    });
-
     if (!findIntroduceList) {
-      copySelectedIntroduceList.push(type);
-
-      console.log('copySelectedIntroduceList', copySelectedIntroduceList);
-
-      setIntroduce({ selectedIntroduceList: copySelectedIntroduceList });
+      copySelectedIntroduceList.unshift(type);
+      setIntroduce(copySelectedIntroduceList);
     }
 
     if (spotlight) {
@@ -60,7 +54,9 @@ const SecondPhaseIntroduce: React.FunctionComponent<IntroducePhaseCallback> = ({
             </SpotlightTour>
           </FadeIn>
         </div>
-        <SecondPhaseIntroduceContent/>
+        <div style={{ marginLeft: '5%' }}>
+          <SecondPhaseIntroduceContent/>
+        </div>
       </UIFlexView>
   );
 };

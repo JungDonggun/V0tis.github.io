@@ -8,6 +8,9 @@ interface IntroducePhaseButtonCallback {
 
 interface IntroduceButtonItem {
   name: string;
-  role: string;
+  role: ROLES;
 }
+
+type ROLES = 'ROLE_001' | 'ROLE_002' | 'ROLE_003' | 'ROLE_004'
+
 

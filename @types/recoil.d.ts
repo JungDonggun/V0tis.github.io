@@ -4,6 +4,3 @@ interface CallbackRecoil {
   };
 }
 
-interface IntroduceRecoil {
-  selectedIntroduceList: IntroduceButtonItem[];
-}

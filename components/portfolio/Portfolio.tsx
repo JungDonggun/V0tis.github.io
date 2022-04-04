@@ -3,17 +3,12 @@ import styled from "@emotion/styled";
 
 
 const Container = styled.div(() => ({
-  width: '100%',
-  height: 600,
-  backgroundColor: 'blue'
+  width: 900,
 }));
 
 const Portfolio: React.FunctionComponent = () => {
   return (
       <Container>
-        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
-        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
-        asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd
         i am Portfolio
       </Container>
   );

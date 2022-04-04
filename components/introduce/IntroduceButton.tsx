@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { useRecoilValue } from "recoil";
 import { callbackManageState } from "../../recoil/callback/callbackManage";
-import { introduceStateReducer } from "../../recoil/introduce/introduceState";
+import { introduceListState } from "../../recoil/introduce/introduceState";
 
 interface Props {
   item: IntroduceButtonItem;
@@ -14,7 +14,7 @@ const BUTTON_STYLE = {
 };
 
 const IntroduceButton: React.FunctionComponent<Props> = ({ item, width, }) => {
-  const introduce = useRecoilValue(introduceStateReducer);
+  const introduce = useRecoilValue(introduceListState);
   const callbacks = useRecoilValue<CallbackRecoil>(callbackManageState);
 
   const onClickHandler = React.useCallback(() => {
@@ -23,7 +23,7 @@ const IntroduceButton: React.FunctionComponent<Props> = ({ item, width, }) => {
 
 
   const isGhost = React.useMemo(() => {
-    const find = introduce.selectedIntroduceList.find(({ role }) => role === item.role);
+    const find = introduce.find(({ role }) => role === item.role);
 
     return !(!!find);
   }, [ introduce ]);
