@@ -25,12 +25,12 @@ const IntroduceButtonManager: React.FunctionComponent = () => {
           </div>
         </div>
         <div style={{ marginTop: 24 }}>
-          <FadeIn delay={1400}>
+          <FadeIn delay={2800}>
             <Title style={INTRODUCE_PHASE_TEXT}>그리고...</Title>
           </FadeIn>
         </div>
         <div>
-          <FadeIn delay={1800}>
+          <FadeIn delay={3800}>
             <Space>
               <IntroduceButton width={503} item={LIST[3]}/>
             </Space>

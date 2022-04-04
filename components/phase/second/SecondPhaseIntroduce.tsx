@@ -31,13 +31,15 @@ const SecondPhaseIntroduce: React.FunctionComponent<IntroducePhaseCallback> = ({
 
   const onClickButtonHandler = React.useCallback((type: IntroduceButtonItem) => {
     const copySelectedIntroduceList = [ ...introduce ];
-    const findIntroduceList = copySelectedIntroduceList.find(({ role }) => role === type.role);
+    const findIntroduceList = copySelectedIntroduceList.findIndex(({ role }) => role === type.role);
 
-    if (!findIntroduceList) {
+    if (findIntroduceList === -1) {
       copySelectedIntroduceList.unshift(type);
-      setIntroduce(copySelectedIntroduceList);
+    } else {
+      copySelectedIntroduceList.splice(findIntroduceList, 1);
     }
 
+    setIntroduce(copySelectedIntroduceList);
     if (spotlight) {
       setSpotlight(false);
     }
