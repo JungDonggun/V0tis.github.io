@@ -4,6 +4,8 @@ import { useRecoilValue } from "recoil";
 import { callbackManageState } from "../../recoil/callback/callbackManage";
 import { introduceListState } from "../../recoil/introduce/introduceState";
 
+// import portfolio from '../../public/pdf/portfolio.pdf'
+
 interface Props {
   item: IntroduceButtonItem;
   width?: number;
@@ -18,14 +20,27 @@ const IntroduceButton: React.FunctionComponent<Props> = ({ item, width, }) => {
   const callbacks = useRecoilValue<CallbackRecoil>(callbackManageState);
 
   const onClickHandler = React.useCallback(() => {
-    callbacks.introduce?.onClickButtonHandler(item);
+    if (item.role === 'ROLE_002') {
+      window.open('/pdf/portfolio.pdf');
+      const find = introduce.find(({ role }) => role === item.role);
+
+      !find && callbacks.introduce?.onClickButtonHandler(item);
+    } else if (item.role === "ROLE_004") {
+      window.location.href = `mailto:donggun.dev@gmail.com`;
+    } else {
+      callbacks.introduce?.onClickButtonHandler(item);
+    }
   }, [ item, callbacks.introduce ]);
 
 
   const isGhost = React.useMemo(() => {
-    const find = introduce.find(({ role }) => role === item.role);
+    if (item.role === "ROLE_004") {
+      return false;
+    } else {
+      const find = introduce.find(({ role }) => role === item.role);
 
-    return !(!!find);
+      return !(!!find);
+    }
   }, [ introduce ]);
 
   return (
